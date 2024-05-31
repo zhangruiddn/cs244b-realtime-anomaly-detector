@@ -1,0 +1,45 @@
+[ai-alert]
+# Customers to enable AI alert
+customer_ids = [1928809131]
+# The time interval in seconds to trigger AI alert computation
+task_schedule_interval_sec = 60
+# The minute(s) to subtract from the latest minute. This is a temporary workaround for data integrity.
+data_delay_minute = 1
+# The minimum group size allowed to trigger anomaly detection
+group_size_threshold = 50
+# The table name of experience data
+session_summary_table = "app_sessionlet_realtime_dist"
+# The group by dimensions for experience data. The '+' sign means dimension combination.
+experience_group_bys = ["deviceName", "browserName", "deviceName+browserName"]
+# The aggregation metrics (as SQL expressions) for experience data
+experience_metrics = ["avg(lifeSessionPageLoadDurationMs)", "sum(lifeSessionEventCount)"]
+# The group by dimensions for trace data
+trace_group_bys = ["serviceName"]
+# The aggregation metrics (as SQL expressions) for trace data
+trace_metrics = ["avg(spanDuration)", "sum(errorCount)"]
+
+[ai-alert-anomaly-detector]
+# The decay factor is used to compute trending mean and variance:
+#   new_mean = decay_factor * old_mean + (1 - decay_factor) * new_data_point
+#   new_variance = decay_factor * old_variance + (1 - decay_factor) * (new_data_point - new_mean) ** 2
+# For variance computation, standard formula weights all squared difference equally, whereas our formula penalizes
+# history values by taking an weighted average.
+decay_factor = 0.99
+# The number of standard deviations considered to be healthy. This defines the safety band above and below the trending
+# mean. The value should be further adjusted by the sensitivity control module (to be added).
+health_band_threshold = 3
+# The number of standard deviations to trigger anomaly. Different severity level should have different thresholds. The
+# value should be further adjusted by the sensitivity control module (to be added).
+anomaly_tolerance_threshold = 10
+# The minutes to warm up each group before detecting anomalies.
+warm_up_minute_threshold = 120
+# The minutes to end an anomaly. If the anomaly metric stays within the health band for these minutes, the anomaly ends.
+anomaly_end_minute_threshold = 5
+
+[clickhouse]
+host = "clickhouse1.us-east4.qe.gcp.conviva.com"
+port = 8123
+username = "default"
+password = ""
+database = "default"
+bootstrap_servers = "localhost:9092"

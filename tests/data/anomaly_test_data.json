@@ -1,0 +1,842 @@
+{
+    "1706685180": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4640053421342176,
+            "checkout_conversion_rate": 0.5138633121397383,
+            "group_size": 299
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4249070309694665,
+            "checkout_conversion_rate": 0.5437028728056467,
+            "group_size": 138
+        }
+    ],
+    "1706685240": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4623840730449056,
+            "checkout_conversion_rate": 0.4888078241726669,
+            "group_size": 287
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5369086853420653,
+            "checkout_conversion_rate": 0.472961659240312,
+            "group_size": 175
+        }
+    ],
+    "1706685300": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4131662494909079,
+            "checkout_conversion_rate": 0.4823643744458644,
+            "group_size": 244
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4153485221960707,
+            "checkout_conversion_rate": 0.5292428247517473,
+            "group_size": 183
+        }
+    ],
+    "1706685360": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.484311222794666,
+            "checkout_conversion_rate": 0.4687030495706036,
+            "group_size": 229
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4898468529973246,
+            "checkout_conversion_rate": 0.5105954849299925,
+            "group_size": 103
+        }
+    ],
+    "1706685420": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4938017011432105,
+            "checkout_conversion_rate": 0.4817168997095656,
+            "group_size": 224
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.598963782263906,
+            "checkout_conversion_rate": 0.46815432967572246,
+            "group_size": 142
+        }
+    ],
+    "1706685480": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5471180904605268,
+            "checkout_conversion_rate": 0.506247666443441,
+            "group_size": 242
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5000340517511423,
+            "checkout_conversion_rate": 0.499610145196742,
+            "group_size": 167
+        }
+    ],
+    "1706685540": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5088594274143523,
+            "checkout_conversion_rate": 0.49541988753969085,
+            "group_size": 253
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5640100935401657,
+            "checkout_conversion_rate": 0.48201774283425103,
+            "group_size": 174
+        }
+    ],
+    "1706685600": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4167685196743078,
+            "checkout_conversion_rate": 0.4868209726429259,
+            "group_size": 228
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.531121830967912,
+            "checkout_conversion_rate": 0.5272504337554987,
+            "group_size": 177
+        }
+    ],
+    "1706685660": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5606608062083687,
+            "checkout_conversion_rate": 0.48556368295476016,
+            "group_size": 294
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4974160826729013,
+            "checkout_conversion_rate": 0.4792145783818875,
+            "group_size": 146
+        }
+    ],
+    "1706685720": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5474733279336395,
+            "checkout_conversion_rate": 0.4830232310072878,
+            "group_size": 215
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5371261956639348,
+            "checkout_conversion_rate": 0.4580178615582496,
+            "group_size": 101
+        }
+    ],
+    "1706685780": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5007617825611803,
+            "checkout_conversion_rate": 0.4943182349349371,
+            "group_size": 257
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5760367138667488,
+            "checkout_conversion_rate": 0.5481488820803975,
+            "group_size": 129
+        }
+    ],
+    "1706685840": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.416413941817356,
+            "checkout_conversion_rate": 0.5446261668316148,
+            "group_size": 239
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.48511153250386,
+            "checkout_conversion_rate": 0.5090667252587947,
+            "group_size": 159
+        }
+    ],
+    "1706685900": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5166179630232497,
+            "checkout_conversion_rate": 0.4601617793871153,
+            "group_size": 290
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5754633047588238,
+            "checkout_conversion_rate": 0.46322862602989556,
+            "group_size": 183
+        }
+    ],
+    "1706685960": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4527680897931725,
+            "checkout_conversion_rate": 0.47540992299164264,
+            "group_size": 292
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4554068612629238,
+            "checkout_conversion_rate": 0.4769556942554985,
+            "group_size": 120
+        }
+    ],
+    "1706686020": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.406328782044475,
+            "checkout_conversion_rate": 0.46269441082604323,
+            "group_size": 234
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4338143694771013,
+            "checkout_conversion_rate": 0.5354659813828672,
+            "group_size": 122
+        }
+    ],
+    "1706686080": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.6256138139142697,
+            "checkout_conversion_rate": 0.5339658552590011,
+            "group_size": 296
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4157271551050767,
+            "checkout_conversion_rate": 0.4717940479134987,
+            "group_size": 183
+        }
+    ],
+    "1706686140": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 3.0893863455824246,
+            "checkout_conversion_rate": 0.5103044052085588,
+            "group_size": 205
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.50792773186224,
+            "checkout_conversion_rate": 0.5436292123689828,
+            "group_size": 141
+        }
+    ],
+    "1706686200": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 3.196682051262124,
+            "checkout_conversion_rate": 0.5127734032337883,
+            "group_size": 241
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4925081666238207,
+            "checkout_conversion_rate": 0.46736105846863263,
+            "group_size": 175
+        }
+    ],
+    "1706686260": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 3.1935562222953306,
+            "checkout_conversion_rate": 0.5099676683282327,
+            "group_size": 208
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.453100375664352,
+            "checkout_conversion_rate": 0.4750800910575048,
+            "group_size": 162
+        }
+    ],
+    "1706686320": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.6756309875530078,
+            "checkout_conversion_rate": 0.5493884227897704,
+            "group_size": 231
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.559688338899865,
+            "checkout_conversion_rate": 0.5313504545977005,
+            "group_size": 190
+        }
+    ],
+    "1706686380": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.986313687248792,
+            "checkout_conversion_rate": 0.5096191925203184,
+            "group_size": 260
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5536524834685057,
+            "checkout_conversion_rate": 0.4630749869816286,
+            "group_size": 102
+        }
+    ],
+    "1706686440": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 3.0043280154809144,
+            "checkout_conversion_rate": 0.5436592531456796,
+            "group_size": 299
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5566522447525697,
+            "checkout_conversion_rate": 0.5168969392561285,
+            "group_size": 137
+        }
+    ],
+    "1706686500": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.912307772084365,
+            "checkout_conversion_rate": 0.4965458294702246,
+            "group_size": 273
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4991549878879598,
+            "checkout_conversion_rate": 0.5304551297642321,
+            "group_size": 169
+        }
+    ],
+    "1706686560": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 3.1970853204689966,
+            "checkout_conversion_rate": 0.5076957255814138,
+            "group_size": 277
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5491110289178986,
+            "checkout_conversion_rate": 0.5247836866500545,
+            "group_size": 170
+        }
+    ],
+    "1706686620": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.735242786356256,
+            "checkout_conversion_rate": 0.5064509106523376,
+            "group_size": 227
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5433970411084479,
+            "checkout_conversion_rate": 0.47925737536731167,
+            "group_size": 103
+        }
+    ],
+    "1706686680": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5298289050986182,
+            "checkout_conversion_rate": 0.48980406451149905,
+            "group_size": 282
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4514315617951261,
+            "checkout_conversion_rate": 0.8897397689346174,
+            "group_size": 162
+        }
+    ],
+    "1706686740": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5507676014460303,
+            "checkout_conversion_rate": 0.491349931849722,
+            "group_size": 217
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.474335485096176,
+            "checkout_conversion_rate": 0.8424960899150122,
+            "group_size": 112
+        }
+    ],
+    "1706686800": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5592403883511936,
+            "checkout_conversion_rate": 0.47326754889793216,
+            "group_size": 288
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4641490912440194,
+            "checkout_conversion_rate": 0.8267854677679267,
+            "group_size": 119
+        }
+    ],
+    "1706686860": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4968053784991424,
+            "checkout_conversion_rate": 0.5375787210262731,
+            "group_size": 225
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4139794985122003,
+            "checkout_conversion_rate": 0.9234930267368604,
+            "group_size": 139
+        }
+    ],
+    "1706686920": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5665609540163592,
+            "checkout_conversion_rate": 0.47065684829726895,
+            "group_size": 210
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4174291909285648,
+            "checkout_conversion_rate": 0.8321428055863963,
+            "group_size": 176
+        }
+    ],
+    "1706686980": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5793751694242535,
+            "checkout_conversion_rate": 0.47381530040809317,
+            "group_size": 249
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.412916158353534,
+            "checkout_conversion_rate": 0.9010517253230229,
+            "group_size": 122
+        }
+    ],
+    "1706687040": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.439687907968762,
+            "checkout_conversion_rate": 0.47758014809293325,
+            "group_size": 220
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5285643147832026,
+            "checkout_conversion_rate": 0.9061900891131132,
+            "group_size": 113
+        }
+    ],
+    "1706687100": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5013625583353,
+            "checkout_conversion_rate": 0.5319001241424339,
+            "group_size": 201
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4649356588646771,
+            "checkout_conversion_rate": 1.0057157753149488,
+            "group_size": 147
+        }
+    ],
+    "1706687160": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.503793792332436,
+            "checkout_conversion_rate": 0.47027580112530937,
+            "group_size": 265
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4366173088242813,
+            "checkout_conversion_rate": 1.0097310933744674,
+            "group_size": 165
+        }
+    ],
+    "1706687220": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4219442181745423,
+            "checkout_conversion_rate": 0.4555271293780646,
+            "group_size": 277
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5860912389698287,
+            "checkout_conversion_rate": 0.9475570463730991,
+            "group_size": 131
+        }
+    ],
+    "1706687280": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 3.4404783720246135,
+            "checkout_conversion_rate": 0.4540391998596492,
+            "group_size": 226
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.542643710975765,
+            "checkout_conversion_rate": 0.829566513462143,
+            "group_size": 127
+        }
+    ],
+    "1706687340": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.643991242096754,
+            "checkout_conversion_rate": 0.5454577731579179,
+            "group_size": 271
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5918564628415834,
+            "checkout_conversion_rate": 0.8935380047691921,
+            "group_size": 185
+        }
+    ],
+    "1706687400": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.6798282166485254,
+            "checkout_conversion_rate": 0.5028169360385378,
+            "group_size": 289
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.578987887877532,
+            "checkout_conversion_rate": 0.8695686225735744,
+            "group_size": 185
+        }
+    ],
+    "1706687460": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 3.1191437730963067,
+            "checkout_conversion_rate": 0.5291369852353669,
+            "group_size": 231
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.571071055945735,
+            "checkout_conversion_rate": 0.8623872545541189,
+            "group_size": 197
+        }
+    ],
+    "1706687520": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.542838615550558,
+            "checkout_conversion_rate": 0.5198809959138188,
+            "group_size": 219
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4902862344425591,
+            "checkout_conversion_rate": 0.8662598759716569,
+            "group_size": 116
+        }
+    ],
+    "1706687580": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.986901703939918,
+            "checkout_conversion_rate": 0.491646226974762,
+            "group_size": 293
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5918214084146582,
+            "checkout_conversion_rate": 0.5429513040960102,
+            "group_size": 121
+        }
+    ],
+    "1706687640": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 3.214252432105363,
+            "checkout_conversion_rate": 0.47109196318216656,
+            "group_size": 256
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5701661959969455,
+            "checkout_conversion_rate": 0.5216474621716485,
+            "group_size": 121
+        }
+    ],
+    "1706687700": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.958764670855344,
+            "checkout_conversion_rate": 0.5230534235589527,
+            "group_size": 203
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5741193161373217,
+            "checkout_conversion_rate": 0.4545738605100904,
+            "group_size": 134
+        }
+    ],
+    "1706687760": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.807600541983833,
+            "checkout_conversion_rate": 0.4927348528841148,
+            "group_size": 269
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4219703876344294,
+            "checkout_conversion_rate": 0.536844824112475,
+            "group_size": 193
+        }
+    ],
+    "1706687820": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 2.5687182505699235,
+            "checkout_conversion_rate": 0.5045157070647358,
+            "group_size": 236
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4043393855855293,
+            "checkout_conversion_rate": 0.5366360066554398,
+            "group_size": 116
+        }
+    ],
+    "1706687880": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4313610478066752,
+            "checkout_conversion_rate": 0.5098782604835027,
+            "group_size": 234
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5773224590621362,
+            "checkout_conversion_rate": 0.49065197482711975,
+            "group_size": 162
+        }
+    ],
+    "1706687940": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4959918710534303,
+            "checkout_conversion_rate": 0.5379851854877722,
+            "group_size": 298
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5614715247299316,
+            "checkout_conversion_rate": 0.47468612897851054,
+            "group_size": 161
+        }
+    ],
+    "1706688000": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5641863246686873,
+            "checkout_conversion_rate": 0.48231552635104225,
+            "group_size": 286
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.550494013633768,
+            "checkout_conversion_rate": 0.46150680795182186,
+            "group_size": 120
+        }
+    ],
+    "1706688060": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4271094180334827,
+            "checkout_conversion_rate": 0.5371171944831061,
+            "group_size": 251
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5965027970195211,
+            "checkout_conversion_rate": 0.47238481265656546,
+            "group_size": 118
+        }
+    ],
+    "1706688120": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4967058414529384,
+            "checkout_conversion_rate": 0.4562773586841682,
+            "group_size": 260
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.546227090278517,
+            "checkout_conversion_rate": 0.5376139355571562,
+            "group_size": 163
+        }
+    ],
+    "1706688180": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4159368790372557,
+            "checkout_conversion_rate": 0.5029983261465,
+            "group_size": 244
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5677264737115053,
+            "checkout_conversion_rate": 0.5350404000453269,
+            "group_size": 169
+        }
+    ],
+    "1706688240": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5400226473405507,
+            "checkout_conversion_rate": 0.4637689882198593,
+            "group_size": 276
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.4380638500592453,
+            "checkout_conversion_rate": 0.5342695342153188,
+            "group_size": 125
+        }
+    ],
+    "1706688300": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4346126246833997,
+            "checkout_conversion_rate": 0.5315850326206679,
+            "group_size": 234
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5677784187081496,
+            "checkout_conversion_rate": 0.5284342946646513,
+            "group_size": 104
+        }
+    ],
+    "1706688360": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5726852755529608,
+            "checkout_conversion_rate": 0.48073214387488034,
+            "group_size": 220
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5427816353069004,
+            "checkout_conversion_rate": 0.5086450090975085,
+            "group_size": 106
+        }
+    ],
+    "1706688420": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.441368880986668,
+            "checkout_conversion_rate": 0.46078527623831034,
+            "group_size": 227
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5483825267674456,
+            "checkout_conversion_rate": 0.5057329742042693,
+            "group_size": 142
+        }
+    ],
+    "1706688480": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.5318865843506024,
+            "checkout_conversion_rate": 0.5099411798256829,
+            "group_size": 222
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5594923941149912,
+            "checkout_conversion_rate": 0.5461014556016442,
+            "group_size": 172
+        }
+    ],
+    "1706688540": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4958896737886571,
+            "checkout_conversion_rate": 0.544948083386862,
+            "group_size": 210
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5410327642158423,
+            "checkout_conversion_rate": 0.5422470855774295,
+            "group_size": 138
+        }
+    ],
+    "1706688600": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4802722740736949,
+            "checkout_conversion_rate": 0.5464976114827097,
+            "group_size": 244
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5985004989594458,
+            "checkout_conversion_rate": 0.4505526319308915,
+            "group_size": 143
+        }
+    ],
+    "1706688660": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4002552495071316,
+            "checkout_conversion_rate": 0.4666619848646858,
+            "group_size": 207
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5980557885947224,
+            "checkout_conversion_rate": 0.5014867274930225,
+            "group_size": 168
+        }
+    ],
+    "1706688720": [
+        {
+            "deviceName": "iPhone",
+            "page_load_time": 1.4011313432271049,
+            "checkout_conversion_rate": 0.5285323267923884,
+            "group_size": 235
+        },
+        {
+            "deviceName": "PC",
+            "page_load_time": 1.5602250554264079,
+            "checkout_conversion_rate": 0.5125615792031352,
+            "group_size": 106
+        }
+    ]
+}
