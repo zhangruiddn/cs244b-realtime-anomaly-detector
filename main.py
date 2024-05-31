@@ -1,14 +1,14 @@
 import argparse
 
-from src.ai_alert import AIAlert
+from src.realtime_alert import RealtimeAlert
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Run AI Alert system.')
+    parser = argparse.ArgumentParser(description='Run Realtime Alert system.')
     parser.add_argument('--mode', type=str, default='ray', help='Execution mode (local or ray)')
     args = parser.parse_args()
 
-    ai_alert = AIAlert('config.toml', mode=args.mode)
+    ai_alert = RealtimeAlert('config.toml', mode=args.mode)
     ai_alert.run()
 
 

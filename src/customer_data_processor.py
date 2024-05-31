@@ -4,14 +4,13 @@ import pandas as pd
 import pickle
 from src.anomaly_detector import AnomalyDetector
 from src.clickhouse_client import ClickHouseClient
-from src.root_cause_miner import RootCauseMiner
 
 SEC_PER_MINUTE = 60
 
 
 # The customer data processor is responsible for time series construction, anomaly detection, and root cause diagnosis.
 # It also manages the algorithm state, and its persistence and retrieval from alert DB. Essentially the data processor
-# handles all tasks needed by AI alert at per customer level.
+# handles all tasks needed by realtime alert at per customer level.
 # In Ray mode, each processor is a Ray actor.
 class CustomerDataProcessor:
     def __init__(self,
@@ -28,7 +27,6 @@ class CustomerDataProcessor:
         self.latest_processed_minute = -1  # epoch seconds
         self.load_state()
         self.anomaly_detector = AnomalyDetector(anomaly_detector_config, ch_config['experience_metrics'])
-        self.root_cause_miner = RootCauseMiner()
 
     def run(self) -> None:
         # Computes time series for each experience group by config.
@@ -38,8 +36,7 @@ class CustomerDataProcessor:
         anomaly_groups = self.anomaly_detector.detect_anomalies(experience_group_metrics)
 
         # Diagnoses root causes based on anomalies detected.
-        experience_cohorts = self.root_cause_miner.localize_experience_cohorts(anomaly_groups)  # recursive search
-        root_cause = self.root_cause_miner.diagnose_root_cause(experience_cohorts)  # new root cause algorithm
+        root_cause = self.root_cause_miner.diagnose_root_cause(anomaly_groups)  # TODO: implement this
 
         # Persists root causes, time series and summary data into alert DB.
         self.write_to_alert_db()

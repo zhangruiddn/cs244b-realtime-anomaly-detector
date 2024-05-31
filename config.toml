@@ -1,7 +1,7 @@
-[ai-alert]
-# Customers to enable AI alert
+[realtime-alert]
+# Customers to enable realtime alert
 customer_ids = [1928809131]
-# The time interval in seconds to trigger AI alert computation
+# The time interval in seconds to trigger realtime alert computation
 task_schedule_interval_sec = 60
 # The minute(s) to subtract from the latest minute. This is a temporary workaround for data integrity.
 data_delay_minute = 1
@@ -18,7 +18,7 @@ trace_group_bys = ["serviceName"]
 # The aggregation metrics (as SQL expressions) for trace data
 trace_metrics = ["avg(spanDuration)", "sum(errorCount)"]
 
-[ai-alert-anomaly-detector]
+[realtime-alert-anomaly-detector]
 # The decay factor is used to compute trending mean and variance:
 #   new_mean = decay_factor * old_mean + (1 - decay_factor) * new_data_point
 #   new_variance = decay_factor * old_variance + (1 - decay_factor) * (new_data_point - new_mean) ** 2
