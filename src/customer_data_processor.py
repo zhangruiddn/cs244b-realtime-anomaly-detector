@@ -1,65 +1,94 @@
-from datetime import datetime
+from typing import Dict, Union, List
 
+import pandas as pd
 import ray
 import pickle
 from src.anomaly_detector import AnomalyDetector
 from src.clickhouse_client import ClickHouseClient
 from src.root_cause_miner import RootCauseMiner
 
+SEC_PER_MINUTE = 60
+
+
+# The customer data processor is responsible for time series construction, anomaly detection, and root cause diagnosis.
+# It also manages the algorithm state, and its persistence and retrieval from alert DB. Essentially the data processor
+# handles all tasks needed by AI alert at per customer level.
+# In Ray mode, each processor is a Ray actor.
 @ray.remote
 class CustomerDataProcessor:
-    def __init__(self, customer_id, ch_config, shift_sec):
+    def __init__(self,
+                 customer_id: int,
+                 ch_config,
+                 anomaly_detector_config,
+                 query_shift_sec: int,
+                 data_delay_minute: int):
         self.customer_id = customer_id
-        self.ch_client = ClickHouseClient(
-            host=ch_config['host'],
-            port=ch_config['port'],
-            username=ch_config['username'],
-            password=ch_config['password'],
-            database=ch_config['database'],
-            kafka_broker=ch_config['kafka_broker'],
-            data_delay_minute=ch_config['data_delay_minute'],
-            session_summary_table=ch_config['session_summary_table']
-        )
-        self.shift_sec = shift_sec  # TODO: used to distribute query load in clickhouse
+        self.ch_client = ClickHouseClient(customer_id, ch_config)
+        self.query_shift_sec = query_shift_sec  # TODO: distributes query load in clickhouse based on this
+        self.data_delay_minute = data_delay_minute
         self.algo_state = 0  # TODO: check what algorithm state is check-pointed in Spark today
-        self.latest_processed_minute = -1
+        self.latest_processed_minute = -1  # epoch seconds
         self.load_state()
-        self.anomaly_detector = AnomalyDetector()
+        self.anomaly_detector = AnomalyDetector(anomaly_detector_config, ch_config['experience_metrics'])
         self.root_cause_miner = RootCauseMiner()
 
-    def run(self):
-        # Gets the latest minute available in clickhouse
-        print("customer_id=" + str(self.customer_id))
-        latest_minute = self.ch_client.get_latest_minute(self.customer_id)
+    def run(self) -> None:
+        # Computes time series for each experience group by config.
+        experience_group_metrics = self.compute_experience_group_metrics()
 
-        # Computes the latest minute to process the data. This is different from latest_minute. We need to ensure all
-        # TLB partitions have finished writing for the minute.
-        minute_to_process = latest_minute - datetime.timedelta(minutes=self.data_delay_minute)
-        print("minute_to_process=" + minute_to_process)
+        # Detects anomalies based on the latest time series.
+        anomaly_groups = self.anomaly_detector.detect_anomalies(experience_group_metrics)
+
+        # Diagnoses root causes based on anomalies detected.
+        experience_cohorts = self.root_cause_miner.localize_experience_cohorts(anomaly_groups)  # recursive search
+        root_cause = self.root_cause_miner.diagnose_root_cause(experience_cohorts)  # new root cause algorithm
+
+        # Persists root causes, time series and summary data into alert DB.
+        self.write_to_alert_db()
+
+    # Returns aggregated group metrics.
+    # The returned type is a nested dictionary, with outer key as the minute (in epoch seconds), and inner key as the
+    # group-by dimension, and the value as the aggregated metrics for the group.
+    # Example output:
+    # experience_group_metrics = {
+    #     1609459200: {"deviceName": df1, "browserName": df2},
+    #     ...
+    # }
+    def compute_experience_group_metrics(self) -> Dict[int, Dict[str, pd.DataFrame]]:
+        # Gets the latest minute available in clickhouse
+        print(f"customer_id={self.customer_id}")
+        latest_minute = self.ch_client.get_latest_minute()  # epoch seconds
+
+        if latest_minute < 0:
+            print(f"No data available for customer {self.customer_id}")
+            return
+
+        # Computes the minute to process the data.
+        # This is different from latest minute. We need to ensure all TLB partitions have finished writing for the
+        # minute to process. This is a temporary workaround before the data integrity service becomes available.
+        minute_to_process = latest_minute - SEC_PER_MINUTE * self.data_delay_minute
+        print(f"minute_to_process={minute_to_process}")
 
         if self.latest_processed_minute >= minute_to_process:
             print(f"Skip the minute {minute_to_process} because the latest processed minute is "
                   f"{self.latest_processed_minute}")
             return
 
-        # Computes the aggregated metrics for each group in clickhouse.
-        # Because of time shifts of task schedule, occasionally we may fetch 0 or 2 minutes of the data.
-        data_to_process = self.ch_client.fetch_data_for_minute(self.customer_id, minute_to_process)
-        self.update_state(data_to_process)
+        # Computes the aggregated metrics for each experience group in clickhouse.
+        aggregated_result = {minute_to_process: self.ch_client.fetch_experience_data_for_minute(minute_to_process)}
+        print(aggregated_result[minute_to_process])
 
-        # Detects anomalies based on the updated algorithm state
-        anomalies = self.anomaly_detector.detectAnomalies(self.algo_state)
+        # Because of time shifts of task schedule, occasionally we may fetch multiple minutes of data.
+        # TODO: add an upper limit on this dating back loop
+        while self.latest_processed_minute > 0 and minute_to_process > self.latest_processed_minute:
+            minute_to_process -= SEC_PER_MINUTE
+            print(f"minute_to_process={minute_to_process}")
+            aggregated_result[minute_to_process] = self.ch_client.fetch_experience_data_for_minute(minute_to_process)
+            print(aggregated_result[minute_to_process])
 
-        # Diagnoses root cause based on anomalies
-        experience_cohorts = self.root_cause_miner.localizeExperienceCohorts(anomalies)  # tree based recursive search
-        root_cause = self.root_cause_miner.diagnoseRootCause(experience_cohorts)  # new root cause algorithm
-
-        # Persists root cause, time series and summary data into alert DB
-        self.write_to_alert_db()
-
-    def update_state(self, data_to_process):
-        # TODO: update baseline, area, and other statistics in algo_state
-        pass
+        # Sorts the result based on the key (timestamp) in ascending order.
+        sorted_aggregated_result = {k: aggregated_result[k] for k in sorted(aggregated_result.keys())}
+        return sorted_aggregated_result
 
     def write_to_alert_db(self):
         # TODO: persist data in 3 tables in mariaDB
@@ -68,11 +97,11 @@ class CustomerDataProcessor:
     def save_state(self):
         # Serializes and saves state to clickhouse. The benefit is that the state is queryable compared to Spark.
         serialized_state = pickle.dumps(self.algo_state)  # TODO: consider flatten the state into different columns
-        self.ch_client.save_state(self.customer_id, serialized_state)
+        self.ch_client.save_state(serialized_state)
 
     def load_state(self):
         # Loads and deserializes state from clickhouse
-        serialized_state = self.ch_client.load_state(self.customer_id)
+        serialized_state = self.ch_client.load_state()
         if serialized_state is not None:
             self.algo_state = pickle.loads(serialized_state)
 

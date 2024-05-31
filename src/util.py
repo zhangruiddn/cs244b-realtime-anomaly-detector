@@ -1,7 +1,7 @@
-def parse_string_array_config(array_string):
-    # Removes the brackets and splits the string by commas
-    return [item.strip() for item in array_string.strip('[]').split(',')]
+from typing import List
 
-def parse_int_array_config(array_string):
-    # Removes the brackets and splits the string by commas
-    return [int(item.strip()) for item in array_string.strip('[]').split(',')]
+
+# Example1: "deviceName+browserName" -> List("deviceName", "browserName")
+# Example2: "deviceName" -> List("deviceName")
+def parse_group_by_combination_config(string: str) -> List[str]:
+    return [item.strip() for item in string.split('+')]
