@@ -8,18 +8,15 @@ from src.config_manager import ConfigManager
 from src.customer_data_processor import CustomerDataProcessor
 
 
-# The AI alert service initiates a new task every `task_schedule_interval_sec` seconds. This task involves the `run()`
+# The Realtime alert service initiates a new task every `task_schedule_interval_sec` seconds. This task involves `run()`
 # method of the customer data processor, which is responsible for generating time series data, detecting anomalies, and
 # diagnosing their root causes.
 #
 # The service can run in two modes:
 #   1) Ray mode - creates a Ray actor for each customer, distributing the load by customer_id
 #   2) local mode - creates local customer data processors to process data, one for each customer_id
-# Caveat: in local mode, please comment out the "@ray.remote" decoration in the customer data processor class. I haven't
-# figured out an easy way to disable Ray without duplicating the class. TODO: fix this.
-#
 # TODO: add more web APIs
-class AIAlert:
+class RealtimeAlert:
     def __init__(self, config_path: str, mode: str = 'ray'):
         # Parses config parameters.
         config_manager = ConfigManager(config_path)
@@ -35,6 +32,12 @@ class AIAlert:
         self.mode = mode
         if self.mode == 'ray':
             ray.init()
+
+            # Dynamically applies Ray's @ray.remote decorator to the CustomerDataProcessor class. This turns it into a
+            # Ray actor class that lives in the Ray cluster.
+            from src.customer_data_processor import CustomerDataProcessor
+            CustomerDataProcessor = ray.remote(CustomerDataProcessor)
+
             # Creates a Ray actor for each customer. We distribute load by customerId.
             self.customer_processors = [
                 CustomerDataProcessor.remote(
@@ -43,6 +46,7 @@ class AIAlert:
                 for customer_id in customer_ids
             ]
         else:
+            from src.customer_data_processor import CustomerDataProcessor
             self.customer_processors = [
                 CustomerDataProcessor(
                     customer_id, ch_config, anomaly_detector_config, 0, data_delay_minute
@@ -58,7 +62,7 @@ class AIAlert:
 
     def run_in_ray_mode(self) -> None:
         while True:
-            print("Running AI Alert in Ray mode...")
+            print("Running Realtime Alert in Ray mode...")
 
             # Dispatches tasks for each customer in the latest data. The task is evoked asynchronously.
             # The header node only keeps track of execution status. The algorithm state is kept in the worker nodes.
@@ -81,7 +85,7 @@ class AIAlert:
             time.sleep(self.task_schedule_interval_sec)
 
     def run_in_local_mode(self) -> None:
-        print("Running AI Alert in local mode...")
+        print("Running Realtime Alert in local mode...")
 
         for processor in self.customer_processors:
             processor.run()

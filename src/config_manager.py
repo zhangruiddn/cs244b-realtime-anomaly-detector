@@ -1,5 +1,4 @@
-import tomllib
-from typing import Dict, Union, List
+import tomli
 
 
 # Parses configuration parameters. So far all configurations are static. In the future, this class should also manage
@@ -8,7 +7,7 @@ class ConfigManager:
     def __init__(self, config_path: str):
         # Parses config parameters.
         with open(config_path, 'rb') as config_file:
-            self.config = tomllib.load(config_file)
+            self.config = tomli.load(config_file)
 
     def get_customer_ids(self):
         return self.config['ai-alert']['customer_ids']

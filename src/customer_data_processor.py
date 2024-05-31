@@ -1,7 +1,6 @@
 from typing import Dict, Union, List
 
 import pandas as pd
-import ray
 import pickle
 from src.anomaly_detector import AnomalyDetector
 from src.clickhouse_client import ClickHouseClient
@@ -14,7 +13,6 @@ SEC_PER_MINUTE = 60
 # It also manages the algorithm state, and its persistence and retrieval from alert DB. Essentially the data processor
 # handles all tasks needed by AI alert at per customer level.
 # In Ray mode, each processor is a Ray actor.
-@ray.remote
 class CustomerDataProcessor:
     def __init__(self,
                  customer_id: int,

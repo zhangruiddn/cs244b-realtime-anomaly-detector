@@ -1,3 +1,5 @@
 ray
+tomli
 pandas
-clickhouse-connect
+clickhouse_connect
+mysql-connector-python
