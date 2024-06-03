@@ -26,7 +26,7 @@ class GroupState:
     warm_up_minute: int = 0  # number of minutes that the group has received data, may not be continuously
 
 
-# Stores anomaly information needed by root cause miner. The anomaly info is per metric per group.
+# Stores anomaly information to be persisted into clickhouse. The anomaly info is per metric per group.
 @dataclass
 class AnomalyInfo:
     metric_value: float = 0.0  # current metric value

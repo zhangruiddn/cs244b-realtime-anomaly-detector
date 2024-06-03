@@ -3,3 +3,4 @@ tomli
 pandas
 clickhouse_connect
 mysql-connector-python
+pyspark
