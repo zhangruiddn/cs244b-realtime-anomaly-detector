@@ -57,8 +57,6 @@ class ClickHouseClient:
     # Example aggregation query:
     #
     def fetch_experience_data_for_minute(self, minute_timestamp: int) -> Dict[str, pd.DataFrame]:
-        # Olap team hasn't decided whether to store all customers' data in one table or separate tables in clickhouse.
-        # Here we assume all data is in one table, so we use customer_id as a filter.
         result_dict = {}
         for group_by in self.experience_group_bys:
             group_by_clause = ", ".join(parse_group_by_combination_config(group_by))

@@ -85,10 +85,6 @@ class CustomerDataProcessor:
         sorted_aggregated_result = {k: aggregated_result[k] for k in sorted(aggregated_result.keys())}
         return sorted_aggregated_result
 
-    def write_to_alert_db(self):
-        # TODO: persist data in 3 tables in mariaDB
-        pass
-
     def save_state(self):
         # Serializes and saves state to clickhouse. The benefit is that the state is queryable compared to Spark.
         serialized_state = pickle.dumps(self.algo_state)  # TODO: consider flatten the state into different columns
