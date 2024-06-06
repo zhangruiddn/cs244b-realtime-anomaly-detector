@@ -1,7 +1,7 @@
 # realtime-anomaly-detector
 
-The realtime anomaly detector constructs per-minute time series from clickhouse, detects anomalies based on Ray and
-Spark framework, and compares performance between the two.
+The realtime anomaly detector constructs per-minute time series from clickhouse, and detects anomalies based on Ray
+framework (using Ray core API).
 
 The input data source is masked dataset from our customers. It contains multi-dimensional data with different metrics
 and dimensions across customers. The anomaly is detected on a user configured set of metrics, and each metrics has its
@@ -18,12 +18,8 @@ computes time series, maintains algorithm state, detects anomalies, and persists
 computation is asynchronous, as each Ray actor is independent, one per customer.
 
 For Spark, the computation at each stage mentioned above is synchronized, because RDD (or dataframe) needs to ensure
-all partitions have finished computation before moving to the next stage. In this implementation, the computation is
-partitioned by customer.
-
-This project implements the same anomaly detection algorithm using both Ray and Spark, and simulates a case when one
-customer has much more data than others, which causes delay in its processing progress. For Ray, the impact is limited
-to only this customer. For Spark, because of the shared RDD, the impact is global.
+all partitions have finished computation before moving to the next stage. Therefore, it cannot provide good customer
+level isolation.
 
 
 ## Ray
